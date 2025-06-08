@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kasir Pintar - Agen Sembako</title>
+    
+    <!-- Link Font Baru dari Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="main-nav">
+        <button id="nav-kasir" class="nav-btn active">Kasir</button>
+        <button id="nav-riwayat" class="nav-btn">Riwayat Transaksi</button>
+    </nav>
+
+    <div id="kasir-section" class="main-section active">
+        <div class="container">
+            <!-- Kolom Kiri: Produk dan Pencarian -->
+            <div class="product-section">
+                <header>
+                    <h1>Kasir Pintar Agen Sembako</h1>
+                    <div class="search-filter-container">
+                        <input type="search" id="search-input" placeholder="Cari produk...">
+                        <div id="category-filters" class="category-filters">
+                            <button class="filter-btn active" data-category="all">Semua</button>
+                            <button class="filter-btn" data-category="minyak">Minyak</button>
+                            <button class="filter-btn" data-category="beras">Beras</button>
+                            <button class="filter-btn" data-category="rokok">Rokok</button>
+                            <button class="filter-btn" data-category="susu">Susu</button>
+                            <button class="filter-btn" data-category="sabun">Sabun</button>
+                        </div>
+                    </div>
+                </header>
+                <main id="product-list" class="product-list">
+                    <!-- Daftar produk akan dimuat oleh JavaScript di sini -->
+                </main>
+            </div>
+
+            <!-- Kolom Kanan: Keranjang Belanja -->
+            <div class="cart-section">
+                <h2>Keranjang Belanja</h2>
+                <div id="cart-items" class="cart-items">
+                    <p class="empty-cart-message">Keranjang masih kosong.</p>
+                </div>
+                <div class="cart-summary">
+                    <div class="total-price">
+                        <span>Total:</span>
+                        <span id="total-price">Rp 0</span>
+                    </div>
+                    <button id="checkout-button" class="checkout-button" disabled>Bayar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="riwayat-section" class="main-section">
+        <div class="history-container">
+            <header class="history-header">
+                <h1>Riwayat Transaksi</h1>
+                <div class="daily-income-panel">
+                    <h3>Pendapatan Hari Ini</h3>
+                    <p id="daily-income">Rp 0</p>
+                </div>
+            </header>
+            <div id="history-list" class="history-list">
+                <!-- Riwayat transaksi akan dimuat di sini -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Pembayaran (Tetap sama) -->
+    <div id="payment-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="close-modal-btn" class="close-modal-btn">×</button>
+            <h2>Proses Pembayaran</h2>
+            <div class="payment-details">
+                <p>Total Belanja:</p>
+                <h3 id="modal-total">Rp 0</h3>
+            </div>
+            <div class="payment-input-group">
+                <label for="payment-input">Jumlah Uang Dibayar (Rp):</label>
+                <input type="number" id="payment-input" placeholder="Masukkan jumlah uang">
+            </div>
+             <div class="payment-details">
+                <p>Kembalian:</p>
+                <h3 id="change-display">Rp 0</h3>
+            </div>
+            <button id="confirm-payment-btn" class="checkout-button" disabled>Konfirmasi & Cetak Struk</button>
+        </div>
+    </div>
+
+    <!-- Struk untuk Dicetak (Tetap sama) -->
+    <div id="receipt-container" class="receipt-container">
+        <div id="receipt-content" class="receipt-content">
+            <h2 class="receipt-header">Struk Pembelian</h2>
+            <p><strong>Toko Sembako Berkah</strong></p>
+            <p>Jl. Merdeka No. 123</p>
+            <hr>
+            <p>Tanggal: <span id="receipt-date"></span></p>
+            <p>No. Struk: <span id="receipt-id"></span></p>
+            <hr>
+            <div id="receipt-items"></div>
+            <hr>
+           
+            <div class="receipt-summary">
+    <p><strong>Total Belanja:</strong> <span id="receipt-total"></span></p>
+    <p><strong>Dibayar:</strong> <span id="receipt-payment"></span></p>
+    <p><strong>Kembalian:</strong> <span id="receipt-change"></span></p>
+</div>
+            <hr>
+            <p class="receipt-footer">Terima kasih telah berbelanja!</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
